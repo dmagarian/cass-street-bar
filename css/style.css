@@ -156,6 +156,19 @@ address {
   font-style: normal;
 }
 
+/* ---- Screen Reader Only ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---- Skip Link ---- */
 .skip-link {
   position: absolute;
@@ -570,9 +583,10 @@ address {
 }
 
 .hero-title-sub {
-  font-size: clamp(1.5rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   color: var(--text-primary);
-  text-shadow: 0 0 40px rgba(255,255,255,0.2);
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 40px rgba(255,255,255,0.25), 0 0 80px rgba(178, 77, 255, 0.15);
 }
 
 .hero-tagline {
