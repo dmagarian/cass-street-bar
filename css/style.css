@@ -81,7 +81,8 @@
     scroll-behavior: auto !important;
   }
   .synthwave-grid,
-  .synthwave-sun,
+  .hero-logo,
+  .hero-logo-glow,
   .hero-stars,
   .scroll-indicator,
   .parallax-divider {
@@ -440,34 +441,56 @@ address {
   100% { background-position: 0 40px; }
 }
 
-/* Sun */
-.synthwave-sun {
-  position: absolute;
-  bottom: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #ffe66d 0%, #ff6b35 40%, #ff2d95 80%, #b24dff 100%);
-  box-shadow: 0 0 100px rgba(255, 107, 53, 0.4), 0 0 200px rgba(255, 45, 149, 0.2);
-  animation: sunPulse 4s ease-in-out infinite;
-  /* Horizontal line cuts */
-  mask-image: repeating-linear-gradient(
-    0deg,
-    #000 0px, #000 8px,
-    transparent 8px, transparent 12px
-  );
-  -webkit-mask-image: repeating-linear-gradient(
-    0deg,
-    #000 0px, #000 8px,
-    transparent 8px, transparent 12px
-  );
+/* Hero Logo as Background Centerpiece */
+.hero-logo-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--space-sm);
 }
 
-@keyframes sunPulse {
-  0%, 100% { box-shadow: 0 0 100px rgba(255, 107, 53, 0.4), 0 0 200px rgba(255, 45, 149, 0.2); }
-  50% { box-shadow: 0 0 120px rgba(255, 107, 53, 0.5), 0 0 240px rgba(255, 45, 149, 0.3); }
+.hero-logo {
+  width: clamp(180px, 30vw, 280px);
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 20px rgba(255, 45, 149, 0.5)) drop-shadow(0 0 60px rgba(178, 77, 255, 0.3));
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+.hero-logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 45, 149, 0.25) 0%,
+    rgba(178, 77, 255, 0.15) 30%,
+    rgba(0, 240, 255, 0.08) 55%,
+    transparent 75%
+  );
+  z-index: 1;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 
 /* Mountains */
@@ -555,16 +578,18 @@ address {
 .hero-tagline {
   font-family: var(--font-heading);
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 300;
-  color: var(--text-secondary);
+  font-weight: 400;
+  color: #ffffff;
   margin-top: var(--space-sm);
   letter-spacing: 0.1em;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .hero-desc {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin-top: var(--space-xs);
-  font-size: 1rem;
+  font-size: 1.05rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .hero-ctas {

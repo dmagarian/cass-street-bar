@@ -254,7 +254,7 @@
   // PARALLAX EFFECT (SUBTLE)
   // ============================================
   const heroContent = document.querySelector('.hero-content');
-  const synthwaveSun = document.querySelector('.synthwave-sun');
+  const heroLogo = document.querySelector('.hero-logo-wrap');
 
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -268,8 +268,8 @@
           heroContent.style.transform = `translateY(${parallaxAmount}px)`;
           heroContent.style.opacity = 1 - (scrollY / window.innerHeight);
         }
-        if (synthwaveSun) {
-          synthwaveSun.style.transform = `translateX(-50%) translateY(${scrollY * 0.15}px)`;
+        if (heroLogo) {
+          heroLogo.style.transform = `translateY(${scrollY * 0.1}px)`;
         }
       }
     }, { passive: true });
