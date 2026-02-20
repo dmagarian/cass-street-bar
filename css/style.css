@@ -1699,6 +1699,10 @@ address {
     --space-3xl: 5rem;
   }
 
+  .scroll-indicator {
+    display: none;
+  }
+
   /* Mobile Nav */
   .nav-toggle {
     display: flex;
