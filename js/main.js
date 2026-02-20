@@ -366,15 +366,21 @@
 
     let isOpen = false;
 
-    if (day >= 1 && day <= 4) {
+    if (day === 5) {
+      // Friday: 11am-2am (into Saturday morning)
+      // Early morning hours (before 2am) on Friday = closed (Thu closes at 10pm)
+      isOpen = time >= 11;
+    } else if (day === 6) {
+      // Saturday: 11am-2am (into Sunday morning)
+      // Early morning hours (before 2am) on Saturday = still open from Fri night
+      isOpen = time < 2 || time >= 11;
+    } else if (day === 0) {
+      // Sunday: 11am-10pm
+      // Early morning hours (before 2am) on Sunday = still open from Sat night
+      isOpen = time < 2 || (time >= 11 && time < 22);
+    } else {
       // Mon-Thu: 11am-10pm
       isOpen = time >= 11 && time < 22;
-    } else if (day === 5 || day === 6) {
-      // Fri-Sat: 11am-2am (next day)
-      isOpen = time >= 11 || time < 2;
-    } else if (day === 0) {
-      // Sunday: 11am-10pm (also open until 2am from Sat)
-      isOpen = time < 2 || (time >= 11 && time < 22);
     }
 
     // Add status to the hero
