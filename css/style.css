@@ -1135,7 +1135,7 @@ address {
 }
 
 /* ============================================
-   PARALLAX DIVIDER - SYNTHWAVE CAR
+   PARALLAX DIVIDER - SYNTHWAVE BOOMBOX
    ============================================ */
 .parallax-divider {
   position: relative;
@@ -1144,50 +1144,130 @@ address {
   background: linear-gradient(180deg, var(--color-bg-deep) 0%, #1a0a3e 50%, var(--color-bg-dark) 100%);
 }
 
-.synthwave-car {
+.synthwave-boombox {
   position: absolute;
-  bottom: 20%;
+  bottom: 18%;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.car-body {
-  width: 180px;
-  height: 50px;
-  background: linear-gradient(180deg, var(--neon-pink), #cc1177);
-  border-radius: 30px 30px 5px 5px;
+.boombox-body {
+  width: 220px;
+  height: 80px;
+  background: linear-gradient(180deg, #2a2a3a, #1a1a2e);
+  border-radius: 8px;
   position: relative;
-  box-shadow: 0 0 30px var(--neon-pink-glow), 0 5px 15px rgba(0,0,0,0.5);
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 25px var(--neon-pink-glow), 0 0 60px rgba(255, 45, 149, 0.15), inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
-.car-body::before,
-.car-body::after {
+/* Speakers */
+.boombox-speaker {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, #111 40%, #222 60%, #333 80%);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 12px var(--neon-cyan-glow), inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+.boombox-speaker::after {
   content: '';
   position: absolute;
-  bottom: -8px;
-  width: 28px;
-  height: 28px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  background: #333;
-  border: 3px solid var(--neon-cyan);
-  box-shadow: 0 0 10px var(--neon-cyan-glow);
+  background: radial-gradient(circle, #444, #222);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 6px var(--neon-cyan-glow);
 }
 
-.car-body::before { left: 15px; }
-.car-body::after { right: 15px; }
+.boombox-speaker-left { left: 12px; }
+.boombox-speaker-right { right: 12px; }
 
-.car-windows {
+/* Cassette deck */
+.boombox-tape {
   position: absolute;
-  top: 5px;
-  left: 30px;
-  right: 30px;
-  height: 22px;
-  background: rgba(0, 240, 255, 0.2);
-  border-radius: 15px 15px 0 0;
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  border: 1px solid rgba(255, 45, 149, 0.5);
+  box-shadow: inset 0 0 8px rgba(255, 45, 149, 0.15);
 }
 
-.car-road {
+.boombox-tape::before,
+.boombox-tape::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(255, 45, 149, 0.6);
+}
+
+.boombox-tape::before { left: 8px; }
+.boombox-tape::after { right: 8px; }
+
+/* Handle */
+.boombox-handle {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 12px;
+  border-radius: 12px 12px 0 0;
+  border: 2px solid var(--neon-pink);
+  border-bottom: none;
+  box-shadow: 0 0 10px var(--neon-pink-glow);
+}
+
+/* EQ bars */
+.boombox-eq {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+}
+
+.eq-bar {
+  display: block;
+  width: 4px;
+  border-radius: 1px;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 4px var(--neon-cyan-glow);
+  animation: eq-bounce 0.8s ease-in-out infinite alternate;
+}
+
+.eq-bar:nth-child(1) { height: 6px; animation-delay: 0s; }
+.eq-bar:nth-child(2) { height: 10px; animation-delay: 0.15s; }
+.eq-bar:nth-child(3) { height: 14px; animation-delay: 0.3s; }
+.eq-bar:nth-child(4) { height: 10px; animation-delay: 0.45s; }
+.eq-bar:nth-child(5) { height: 6px; animation-delay: 0.6s; }
+
+@keyframes eq-bounce {
+  0% { transform: scaleY(0.5); opacity: 0.6; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+/* Ground line */
+.boombox-ground {
   position: absolute;
   bottom: -20px;
   left: -200%;
