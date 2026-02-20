@@ -307,24 +307,16 @@ address {
 .logo-text-wrap {
   display: flex;
   flex-direction: column;
-}
-
-.logo-text {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 900;
-  background: var(--gradient-sunset);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  justify-content: center;
 }
 
 .logo-sub {
   font-family: var(--font-heading);
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: 0.3em;
   color: var(--neon-cyan);
   text-transform: uppercase;
+  margin-top: -2px;
 }
 
 .nav-links {
