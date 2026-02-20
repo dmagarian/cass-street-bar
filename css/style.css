@@ -114,6 +114,7 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -655,7 +656,7 @@ address {
 .section-tag {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 1rem;
   letter-spacing: 0.3em;
   color: var(--neon-cyan);
   text-transform: uppercase;
@@ -1288,6 +1289,7 @@ address {
   max-width: 700px;
   margin: 0 auto;
   position: relative;
+  padding-left: 24px;
 }
 
 .events-timeline::before {
@@ -1295,7 +1297,7 @@ address {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50px;
+  left: 24px;
   width: 2px;
   background: linear-gradient(180deg, var(--neon-pink), var(--neon-purple), var(--neon-cyan));
 }
@@ -1306,6 +1308,21 @@ address {
   align-items: flex-start;
   padding: var(--space-md) 0;
   position: relative;
+  padding-left: 28px;
+}
+
+.event-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: calc(var(--space-md) + 6px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan-glow);
+  border: 2px solid var(--color-bg-dark);
+  z-index: 1;
 }
 
 .event-day {
@@ -1315,23 +1332,8 @@ address {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--neon-pink);
-  text-align: center;
+  text-align: left;
   text-shadow: 0 0 10px var(--neon-pink-glow);
-  position: relative;
-}
-
-.event-day::after {
-  content: '';
-  position: absolute;
-  right: -9px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--neon-cyan);
-  box-shadow: 0 0 10px var(--neon-cyan-glow);
-  border: 2px solid var(--color-bg-dark);
 }
 
 .event-details {
@@ -1770,17 +1772,25 @@ address {
     gap: var(--space-sm);
   }
 
+  .events-timeline {
+    padding-left: 16px;
+  }
+
   .events-timeline::before {
-    left: 30px;
+    left: 16px;
+  }
+
+  .event-item {
+    padding-left: 24px;
+  }
+
+  .event-item::before {
+    left: -5px;
   }
 
   .event-day {
     width: 60px;
     font-size: 0.75rem;
-  }
-
-  .event-day::after {
-    right: -9px;
   }
 
   .footer-grid {
